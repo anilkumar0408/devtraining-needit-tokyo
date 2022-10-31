@@ -8,11 +8,11 @@
         <description/>
         <name>GetDepartment</name>
         <script><![CDATA[var GetDepartment = Class.create();
-GetDepartment.prototype = Object.extenObject(global.AbstractAjaxProcessor,{
+GetDepartment.prototype = Object.extendsObject(global.AbstractAjaxProcessor,{
     getDept: function() {
 		var record = new GlideRecord("sys_user");
 		record.get(this.getParameter('sysparm_email'));
-		return record.last_name + '';
+		return record.department + '';
     },
     type: 'GetDepartment'
 });]]></script>
