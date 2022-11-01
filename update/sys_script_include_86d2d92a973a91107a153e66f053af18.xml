@@ -11,8 +11,12 @@
 GetDepartment.prototype = Object.extendsObject(global.AbstractAjaxProcessor,{
     getDept: function() {
 		var record = new GlideRecord("sys_user");
-		record.get(this.getParameter('sysparm_email'));
-		return record.department + '';
+		record.addQuery('email',this.getParameter('sysparm_email'));
+		record.query();
+// 		record.get("email",this.getParameter('sysparm_email'));
+		while(record.next()){
+			return record.last_name + '';
+		}
     },
     type: 'GetDepartment'
 });]]></script>
